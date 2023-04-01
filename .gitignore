@@ -27,3 +27,6 @@ dist-ssr
 # Yalc
 yalc.lock
 .yalc
+
+# Data
+_data

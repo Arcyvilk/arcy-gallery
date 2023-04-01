@@ -1,11 +1,14 @@
 <script lang="ts">
   import Gallery from './components/Gallery.svelte';
   import Header from './components/Header.svelte';
+  import { images } from './images';
+
+  const nrOfColumns = 4;
 </script>
 
 <main>
   <Header />
-  <Gallery />
+  <Gallery nrOfColumns="{nrOfColumns}" images="{images}" />
 </main>
 
 <style lang="scss">

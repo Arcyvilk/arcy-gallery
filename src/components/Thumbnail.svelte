@@ -1,35 +1,36 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
   export let src: string;
-  let loaded = false;
-  let thisThumbnail;
-
-  onMount(() => {
-    thisThumbnail.onload = () => {
-      loaded = true;
-    };
-  });
 </script>
 
-<img class="thumbnail" src="{src}" alt="Thumbnail" />
+<div class="thumbnail">
+  <img class="thumbnail__img" src="{src}" alt="Thumbnail" />
+</div>
 
 <style lang="scss" scoped>
   @use '../styles/globals.scss' as *;
   .thumbnail {
     z-index: 1;
-    max-width: $size;
+    position: relative;
+    height: $size;
     flex: 1 1 auto;
-    object-fit: cover;
-    cursor: pointer;
     transition: transform 500ms, box-shadow 500ms;
-    background-color: rgb(32, 32, 32);
-    border: 2px solid #0b0b0b;
 
     &:hover {
       z-index: 2;
       transform: scale(1.1);
       box-shadow: 0 0 50px #0b0b0b;
+    }
+
+    &__img {
+      z-index: 1;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+      background-color: rgb(32, 32, 32);
+      border: 5px solid #0b0b0b;
+      box-sizing: border-box;
+      cursor: pointer;
     }
   }
 </style>

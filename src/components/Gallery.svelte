@@ -3,32 +3,27 @@
   import { getColumns } from '../utils/getColumns';
 
   export let images: string[];
-  export let nrOfColumns: number;
+  export let maxColumns: number = undefined;
 
-  const columns = getColumns(images, nrOfColumns);
+  let columns: string[][];
+
+  $: {
+    columns = maxColumns ? getColumns(images, maxColumns) : [images];
+  }
 </script>
 
 <div class="gallery">
   {#each columns as col}
-    <div class="column">
-      {#each col as img}
-        <Thumbnail src="{img}" />
-      {/each}
-    </div>
+    {#each col as img}
+      <Thumbnail src="{img}" />
+    {/each}
   {/each}
 </div>
 
 <style lang="scss" scoped>
-  @use '../styles/globals.scss' as *;
   .gallery {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    gap: 8px;
-    max-width: 1500px;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-wrap: wrap;
   }
 </style>

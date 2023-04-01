@@ -13,7 +13,8 @@ export const getColumns = <T>(arr: T[], nrOfColumns: number) => {
     .fill(null)
     .map((_, index: number) =>
       arr.slice(breakpoints[index], breakpoints[index + 1]),
-    );
+    )
+    .filter(el => el.length);
 
   return columns;
 };

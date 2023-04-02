@@ -1,6 +1,8 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import type { ImgTile } from '../../types';
+  import Description from '../atoms/Description.svelte';
+  import Title from '../atoms/Title.svelte';
 
   export let img: ImgTile;
   export let isHovered = false;
@@ -8,13 +10,12 @@
 
 {#if isHovered}
   <div class="details" transition:fade="{{ duration: 200 }}">
-    <h3 class="details__title">{img.title}</h3>
-    <p class="details__description">{img.description}</p>
+    <Title title="{img.title}" />
+    <Description description="{img.description}" />
   </div>
 {/if}
 
 <style lang="scss" scoped>
-  @use '../../styles/globals.scss' as *;
   .details {
     position: absolute;
     bottom: 0;
@@ -27,16 +28,5 @@
     box-sizing: border-box;
     background-color: #0b0b0bcc;
     pointer-events: none;
-
-    &__title {
-      all: unset;
-      font-size: 1.3em;
-      font-weight: 600;
-    }
-    &__description {
-      all: unset;
-      font-size: 0.8em;
-      font-family: $font-raleway;
-    }
   }
 </style>

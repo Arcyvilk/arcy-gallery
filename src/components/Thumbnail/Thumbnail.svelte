@@ -4,20 +4,23 @@
   import ThumbnailImage from './ThumbnailImage.svelte';
 
   export let img: ImgTile;
+  export let selectImage: (img: ImgTile) => void;
   let isHovered = false;
 </script>
 
-<div
+<button
   class="thumbnail"
   on:mouseenter="{() => (isHovered = true)}"
-  on:mouseleave="{() => (isHovered = false)}">
+  on:mouseleave="{() => (isHovered = false)}"
+  on:click="{() => selectImage(img)}">
   <ThumbnailImage img="{img}" />
   <ThumbnailDetails img="{img}" isHovered="{isHovered}" />
-</div>
+</button>
 
 <style lang="scss" scoped>
   @use '../../styles/globals.scss' as *;
   .thumbnail {
+    all: unset;
     z-index: 1;
     position: relative;
     height: var(--max-height);
@@ -25,7 +28,7 @@
     transition: transform 500ms, box-shadow 500ms;
     grid-row-end: var(--span); // won't work cause it's flex, not grid
     background-color: rgb(32, 32, 32);
-    border: 5px solid #0b0b0b;
+    border: 2px solid #0b0b0b;
 
     &:hover {
       z-index: 2;

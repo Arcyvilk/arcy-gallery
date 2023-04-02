@@ -1,22 +1,21 @@
 <script lang="ts">
-  import Thumbnail from './Thumbnail.svelte';
-  import { getColumns } from '../utils/getColumns';
+  import Thumbnail from './Thumbnail/Thumbnail.svelte';
+  import type { ImgTile, Options } from '../types';
+  import { getOptions } from '../utils/getOptions';
 
-  export let images: string[];
-  export let maxColumns: number = undefined;
+  export let images: ImgTile[];
+  export let options: Options;
 
-  let columns: string[][];
+  let fixedOptions;
 
   $: {
-    columns = maxColumns ? getColumns(images, maxColumns) : [images];
+    fixedOptions = getOptions(options);
   }
 </script>
 
 <div class="gallery">
-  {#each columns as col}
-    {#each col as img}
-      <Thumbnail src="{img}" />
-    {/each}
+  {#each images as img}
+    <Thumbnail img="{img}" --max-height="{fixedOptions.maxHeight}px" />
   {/each}
 </div>
 

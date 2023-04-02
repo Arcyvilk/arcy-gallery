@@ -6,22 +6,23 @@ import img05 from './_data/05.jpg';
 import img06 from './_data/06.jpg';
 import img07 from './_data/07.jpg';
 import img08 from './_data/08.jpg';
+import type { ImgTile } from './types';
+import { shuffleArray } from './utils/shuffleArray';
 
-export const images = [
-  img03,
-  img02,
-  img05,
-  img04,
-  img01,
-  img06,
-  img08,
-  img07,
-  img07,
-  img04,
-  img03,
-  img01,
-  img08,
-  img05,
-  img02,
-  img06,
-];
+export const images: ImgTile[] = shuffleArray([
+  { url: img03, thumbnail: img03, title: 'Title', description: 'Description' },
+  { url: img02, thumbnail: img02, title: 'Title', description: 'Description' },
+  { url: img05, thumbnail: img05, title: 'Title', description: 'Description' },
+  { url: img04, thumbnail: img04, title: 'Title', description: 'Description' },
+  { url: img01, thumbnail: img01, title: 'Title', description: 'Description' },
+  { url: img06, thumbnail: img06, title: 'Title', description: 'Description' },
+  { url: img08, thumbnail: img08, title: 'Title', description: 'Description' },
+  { url: img07, thumbnail: img07, title: 'Title', description: 'Description' },
+  { url: img04, thumbnail: img04, title: 'Title', description: 'Description' },
+  { url: img03, thumbnail: img03, title: 'Title', description: 'Description' },
+  { url: img01, thumbnail: img01, title: 'Title', description: 'Description' },
+  { url: img08, thumbnail: img08, title: 'Title', description: 'Description' },
+  { url: img05, thumbnail: img05, title: 'Title', description: 'Description' },
+  { url: img02, thumbnail: img02, title: 'Title', description: 'Description' },
+  { url: img06, thumbnail: img06, title: 'Title', description: 'Description' },
+]);

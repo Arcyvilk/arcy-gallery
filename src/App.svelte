@@ -4,7 +4,7 @@
   import type { Options } from './types';
 
   let options: Options = {
-    maxHeight: 256,
+    maxHeight: 400,
   };
   let maxHeight: number;
   $: {

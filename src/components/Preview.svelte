@@ -27,7 +27,7 @@
 <style lang="scss" scoped>
   .preview {
     display: flex;
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 3;
     width: 100vw;

@@ -1,6 +1,7 @@
 {
   "name": "arcy-gallery",
   "private": true,
+  "homepage": "https://arcyvilk.github.io/arcy-gallery/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
